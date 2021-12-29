@@ -10,12 +10,16 @@ router.get('/', async (req, res) => {
             remoteUri: 'https://uptick2.zendesk.com/api/v2'
         })
 
+        const from = req.body.email + ' ' + req.body.email || "[No name]"
+        // const name = req.body.name || "[No name]"
+        const message = req.body.message
+
         var ticket = {
             "ticket":
             {
-                "subject": "My printer is on fire!",
+                "subject": from,
                 "comment": {
-                    "body": "The smoke is very colorful."
+                    "body": message
                 }
             }
         }
