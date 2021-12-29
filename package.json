@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/despotbg/uptickNodeServer#readme",
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "node-libcurl": "^2.3.3",
+    "node-zendesk": "^2.1.0"
   }
 }
