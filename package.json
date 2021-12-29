@@ -1,0 +1,26 @@
+{
+  "name": "uptickNodeServer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/despotbg/uptickNodeServer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/despotbg/uptickNodeServer/issues"
+  },
+  "homepage": "https://github.com/despotbg/uptickNodeServer#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
