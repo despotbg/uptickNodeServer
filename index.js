@@ -9,7 +9,6 @@ var app = express()
 // create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-// POST /login gets urlencoded bodies
 app.post('/zendesk-ticket-post', urlencodedParser, function (req, res) {
   try {
     var client = zendesk.createClient({
@@ -19,7 +18,6 @@ app.post('/zendesk-ticket-post', urlencodedParser, function (req, res) {
     })
 
     const from = req.body.name + ' ' + req.body.email || "[No name]"
-    // const name = req.body.name || "[No name]"
     const message = req.body.message
 
     var ticket = {
@@ -36,13 +34,6 @@ app.post('/zendesk-ticket-post', urlencodedParser, function (req, res) {
       if (err) return handleError(err)
       console.log(JSON.stringify(result, null, 2, true))
     })
-
-    // res.json({
-    //     status: 200,
-    //     message: 'OK 111'
-    // })
-    res.send('Your message has been send')
-
   } catch (err) {
     console.error(err)
     return res.status(500).send("Server error")
