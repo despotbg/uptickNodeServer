@@ -6,9 +6,6 @@ var zendesk = require('node-zendesk')
 
 var app = express()
 
-// create application/json parser
-var jsonParser = bodyParser.json()
-
 // create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
@@ -56,11 +53,6 @@ function handleError(err) {
   console.log(err)
   process.exit(-1)
 }
-
-// POST /api/users gets JSON bodies
-app.post('/api/users', jsonParser, function (req, res) {
-  // create user in req.body
-})
 
 app.listen(8080, () => {
   console.log("Started on PORT 8080")
