@@ -18,7 +18,7 @@ app.post('/zendesk-ticket-post', urlencodedParser, function (req, res) {
       remoteUri: 'https://uptick2.zendesk.com/api/v2'
     })
 
-    const from = req.body.email + ' ' + req.body.email || "[No name]"
+    const from = req.body.name + ' ' + req.body.email || "[No name]"
     // const name = req.body.name || "[No name]"
     const message = req.body.message
 
