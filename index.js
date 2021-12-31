@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: '.env',
+});
+
 var express = require('express')
 var bodyParser = require('body-parser')
 const router = express.Router()
@@ -5,15 +9,19 @@ var zendesk = require('node-zendesk')
 
 var app = express()
 
+const zendeskUsername = process.env.ZENDESK_USERNAME
+const zendeskToken = process.env.ZENDESK_TOKEN
+const zendeskUri = process.env.ZENDESK_URI
+
 // create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.post('/zendesk-ticket-post', urlencodedParser, function (req, res) {
   try {
     var client = zendesk.createClient({
-      username: 'despotbg@yahoo.com',
-      token: 'lhtdGAkluDRoRwNdLhF7G7gr35KUpsjxFkdd4NBw',
-      remoteUri: 'https://uptick2.zendesk.com/api/v2'
+      username: zendeskUsername,
+      token: zendeskToken,
+      remoteUri: zendeskUri
     })
 
     const from = req.body.name + ' ' + req.body.email || "[No name]"
